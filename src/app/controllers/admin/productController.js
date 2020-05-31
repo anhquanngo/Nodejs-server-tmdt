@@ -1,8 +1,10 @@
-// module.exports.product = async function (req, res) {
-//     res.render("admin/product")
-// }
-function getList(req, res) {
-    res.render("admin/product")
+const mongoose = require("mongoose")
+
+const Product = mongoose.model("Product");
+async function getList(req, res) {
+    const allProduct = await Product.find().populate("cat_id")
+    console.log("getList -> allProduct", allProduct)
+    res.render("admin/product", { allProduct })
 }
 function getAdd(req, res) {
     res.render("admin/add_product")

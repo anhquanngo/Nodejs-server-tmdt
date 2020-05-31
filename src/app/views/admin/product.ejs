@@ -39,15 +39,28 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <%allProduct.map((product, index) =>{%>
                             <tr>
-                                <td style="">1</td>
-                                <td style="">Sản phẩm số 1</td>
-                                <td style="">18.500.000 vnd</td>
-                                <td style="text-align: center"><img width="130" height="180"
-                                        src="/asset/admin/img/download.jpeg" />
+                                <td style="">
+                                    <%= index + 1 %>
                                 </td>
-                                <td><span class="label label-success">Còn hàng</span></td>
-                                <td>Danh mục số 1</td>
+                                <td style="">
+                                    <%= product.prd_name %>
+                                </td>
+                                <td style="">
+                                    <%= product.prd_price %>VND
+                                </td>
+                                <td style="text-align: center"><img width="130" height="180"
+                                        src="/asset/admin/img/<%= product.prd_image%>" />
+                                </td>
+                                <td>
+                                    <% if(product.prd_status==1){ %>
+                                    <span class="label label-success">Còn Hàng</span>
+                                    <%}else{%>
+                                    <span class="label label-danger">Hết Hàng</span>
+                                    <%}%>
+                            </td>
+                                <td><%= product.cat_id.cat_name%> </td>
                                 <td class="form-group">
                                     <a href="edit-product" class="btn btn-primary"><i
                                             class="glyphicon glyphicon-pencil"></i></a>
@@ -55,22 +68,7 @@
                                             class="glyphicon glyphicon-remove"></i></a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td style="">1</td>
-                                <td style="">Sản phẩm số 2</td>
-                                <td style="">18.500.000 vnd</td>
-                                <td style="text-align: center"><img width="130" height="180"
-                                        src="/asset/admin/img/download.jpeg" />
-                                </td>
-                                <td><span class="label label-danger">Hết hàng</span></td>
-                                <td>Danh mục số 1</td>
-                                <td class="form-group">
-                                    <a href="edit-product" class="btn btn-primary"><i
-                                            class="glyphicon glyphicon-pencil"></i></a>
-                                    <a href="edit-product" class="btn btn-danger"><i
-                                            class="glyphicon glyphicon-remove"></i></a>
-                                </td>
-                            </tr>
+                            <%})%>
                         </tbody>
                     </table>
                 </div>

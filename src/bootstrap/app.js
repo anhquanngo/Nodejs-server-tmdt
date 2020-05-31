@@ -2,6 +2,7 @@ const express = require("express")
 const app = express();
 const body_parser = require("body-parser")
 const path = require("path")
+require('../libs/mongo-db')
 
 app.use(body_parser.urlencoded({ extended: true }))
 app.use(body_parser.json())

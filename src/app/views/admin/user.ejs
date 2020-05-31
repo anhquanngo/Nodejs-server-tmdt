@@ -37,28 +37,25 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <%users.forEach((user, index)=>{%>
                             <tr>
-                                <td style="">1</td>
-                                <td style="">Admin</td>
-                                <td style="">admin@gmail.com</td>
-                                <td><span class="label label-danger">Admin</span></td>
+                                <td style=""> <%=index+1%></td>
+                                <td style=""><%=user.user_fullname%></td>
+                                <td style=""><%=user.user_mail%></td>
+                                <td>
+                                    <%if(user.user_level==1){%>
+                                    <span class="label label-danger">Admin</span>
+                                    <%}else{%>
+                                    <span class="label label-primary">Member</span>
+                                    <%}%>
+                                </td>
                                 <td class="form-group">
                                     <a href="edit-user" class="btn btn-primary"><i
                                             class="glyphicon glyphicon-pencil"></i></a>
                                     <a href="/" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td style="">2</td>
-                                <td style="">Nguyễn Văn A</td>
-                                <td style="">nguyenvana@gmail.com</td>
-                                <td><span class="label label-warning">Member</span></td>
-                                <td class="form-group">
-                                    <a href="edit-user" class="btn btn-primary"><i
-                                            class="glyphicon glyphicon-pencil"></i></a>
-                                    <a href="/" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
-                                </td>
-                            </tr>
+                            <%})%>
                         </tbody>
                     </table>
                 </div>
