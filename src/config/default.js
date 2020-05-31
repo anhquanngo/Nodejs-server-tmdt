@@ -1,6 +1,5 @@
 module.exports = {
-  app: {
-    PORT: 3000,
-  },
-};
-
+    app: {
+        PORT: 4000
+    }
+}

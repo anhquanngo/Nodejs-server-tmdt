@@ -1,10 +1,18 @@
-const express = require("express");
+const express = require("express")
 const app = express();
-const path = require("path");
+const body_parser = require("body-parser")
+const path = require("path")
 
-app.use("/access", express.static(path.join(__dirname, "..", "public")));
+app.use(body_parser.urlencoded({ extended: true }))
+app.use(body_parser.json())
 
-app.use("/api", require("../routers/api"));
-app.use("/", require("../routers/web"));
+app.use("/asset", express.static(path.join(__dirname, "..", "public")))
+console.log(path.join(__dirname, "..", "public"));
 
-module.exports = app;
+app.set("views", path.join(__dirname, "..", "app", "views"))
+app.set("view engine", "ejs")
+
+app.use("/api", require("../routers/api"))
+app.use("/", require("../routers/web"))
+
+module.exports = app
