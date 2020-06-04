@@ -4,7 +4,7 @@ const loginController = require('../app/controllers/admin/loginController')
 
 const router = Router();
 
-router.get("/admin/dashbroad", AdminController.Dashbroad.dashbroad)
+router.get("/admin/dashboard", AdminController.Dashbroad.dashbroad)
 router.get("/admin/category", AdminController.Category.getList)
 router.get("/admin/product", AdminController.Product.getList)
 router.get("/admin/user", AdminController.User.getList)
