@@ -11,6 +11,8 @@ app.use(session({
 
 }))
 
+app.use(require("../app/middlewares/share-data"))
+
 app.use(body_parser.urlencoded({ extended: true }))
 app.use(body_parser.json())
 

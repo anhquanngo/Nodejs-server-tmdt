@@ -1,5 +1,5 @@
 const { Router } = require("express")
-const { AdminController } = require("../app/controllers/index")
+const { AdminController, ClientController } = require("../app/controllers/index")
 const loginController = require('../app/controllers/admin/loginController')
 const checkLogin = require("../app/middlewares/check-login")
 const checkLoginOut = require("../app/middlewares/check-logout")
@@ -27,6 +27,7 @@ router.use("/admin/login", checkLoginOut)
 router.use("/admin", checkLoginOut)
 router.get("/admin/logout", loginController.logout)
 //Client
+router.get("/", ClientController.home)
 
 router.get("/admin/dashboard", AdminController.Dashbroad.dashbroad)
 router.get("/admin/category", AdminController.Category.getList)

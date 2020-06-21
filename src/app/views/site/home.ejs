@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <base href="/asset/client/">
+    <title>Home</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/home.css">
+    <%- include("layout/head") %>
+
+</head>
+
+<body>
+
+    <!--	Header	-->
+    <%- include("layout/header") %>
+    <!--	End Header	-->
+
+    <!--	Body	-->
+    <div id="body">
+        <div class="container">
+            <%- include("layout/menu") %>
+            <div class="row">
+                <div id="main" class="col-lg-8 col-md-12 col-sm-12">
+                    <!--	Slider	-->
+                    <%- include("layout/slide") %>
+                    <!--	End Slider	-->
+
+                    <!--	Feature Product	-->
+                    <div class="products">
+                        <h3>Sản phẩm nổi bật</h3>
+                        <div class="product-list card-deck">
+                            <% for(let product of ProductFeatured){ %>
+                            <%- include("components/product-item", {product}) %>
+                            <% } %>
+                        </div>
+
+                    </div>
+                    <!--	End Feature Product	-->
+
+
+                    <!--	Latest Product	-->
+                    <div class="products">
+                        <h3>Sản phẩm mới</h3>
+                        <div class="product-list card-deck">
+                            <% for(let product of ProductNew){ %>
+                            <%- include("components/product-item", {product}) %>
+                            <% } %>
+                        </div>
+                    </div>
+                    <!--	End Latest Product	-->
+
+                </div>
+
+                <%- include("layout/sidebar") %>
+            </div>
+        </div>
+    </div>
+    <!--	End Body	-->
+
+    <%-include("layout/footer") %>
+
+</body>
+
+</html>
