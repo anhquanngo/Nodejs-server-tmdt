@@ -1,5 +1,8 @@
 const { Router } = require("express")
-const { AdminController, ClientController } = require("../app/controllers/index")
+const { AdminController } = require("../app/controllers/index")
+const loginController = require('../app/controllers/admin/loginController')
+const checkLogin = require("../app/middlewares/check-login")
+const checkLoginOut = require("../app/middlewares/check-logout")
 
 const multer = require("multer")
 const { route } = require("./api")
@@ -15,7 +18,14 @@ const upload = multer({
 })
 
 const router = Router();
+router
+    .route("/admin/login")
+    .get(checkLogin, loginController.login)
+    .post(checkLogin, loginController.postLogin)
+router.use("/admin/login", checkLoginOut)
 
+router.use("/admin", checkLoginOut)
+router.get("/admin/logout", loginController.logout)
 //Client
 
 router.get("/admin/dashboard", AdminController.Dashbroad.dashbroad)
