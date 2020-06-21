@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const User = mongoose.model("User")
+const session = require("express-session")
 
 module.exports.login = function (req, res) {
     res.render("admin/login", { error: "" })
@@ -19,11 +20,16 @@ module.exports.postLogin = async function (req, res) {
     }
     if (user) {
         if (user.user_pass === pass) {
-            return res.redirect("/admin/dashbroad")
+            req.session.user = user
+            return res.redirect("/admin/dashboard")
         }
         res.render("admin/login", {
             error: "Mật Khâu không khớp"
         })
     }
 
+}
+module.exports.logout = function (req, res) {
+    req.session.destroy()
+    res.redirect("/admin/login")
 }

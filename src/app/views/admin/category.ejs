@@ -41,9 +41,9 @@
                                 <td style=""><%= index +1 %></td>
                                 <td style=""><%= category.cat_name%></td>
                                 <td class="form-group">
-                                    <a href="edit-category" class="btn btn-primary"><i
+                                    <a href="/admin/edit-category/<%=category._id%>" class="btn btn-primary"><i
                                             class="glyphicon glyphicon-pencil"></i></a>
-                                    <a href="edit-category" class="btn btn-danger"><i
+                                    <a href="/admin/delete-category/<%=category._id%>" class="btn btn-danger"><i
                                             class="glyphicon glyphicon-remove"></i></a>
                                 </td>
                             </tr>

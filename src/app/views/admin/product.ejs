@@ -62,9 +62,9 @@
                             </td>
                                 <td><%= product.cat_id.cat_name%> </td>
                                 <td class="form-group">
-                                    <a href="edit-product" class="btn btn-primary"><i
+                                    <a href="/admin/edit-product/<%=product._id%>" class="btn btn-primary"><i
                                             class="glyphicon glyphicon-pencil"></i></a>
-                                    <a href="edit-product" class="btn btn-danger"><i
+                                    <a href="/admin/delete-product/<%=product._id%>" class=" btn btn-danger"><i
                                             class="glyphicon glyphicon-remove"></i></a>
                                 </td>
                             </tr>
